@@ -5,7 +5,7 @@ const FeaturedProperties = async () => {
   const properties = await fetchProperties({ showFeatured: true });
 
   return (
-    properties.length > 0 && (
+    properties !== undefined && properties.length > 0 && (
       <section className="bg-blue-50 px-4 pt-6 pb-10">
         <div className="container-xl lg:container m-auto">
           <h2 className="text-3xl font-bold text-blue-500 mb-6 text-center">
