@@ -6,15 +6,13 @@ export const fetchProperties = async ({ showFeatured = false } = {}) => {
     if (!apiDomain) {
       return [];
     }
+
+    // URLS
     let res = [];
     if (showFeatured) {
-      res = await fetch(`${apiDomain}/properties/featured`, {
-        cache: "no-store",
-      });
+      res = await fetch(`${apiDomain}/properties/featured`);
     } else {
-      res = await fetch(`${apiDomain}/properties?page=1&&pageSize=10`, {
-        cache: "no-store",
-      });
+      res = await fetch(`${apiDomain}/properties?page=1&&pageSize=10`);
     }
 
     if (!res.ok) {
