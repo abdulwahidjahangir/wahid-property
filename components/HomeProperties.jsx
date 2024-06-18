@@ -7,9 +7,13 @@ export const revalidate = 0;
 const HomeProperties = async () => {
   const data = await fetchProperties();
 
-  const recentProperties = data.properties
-    .sort(() => Math.random() - Math.random())
-    .slice(0, 3);
+  if (data?.properties == undefined || data.undefined) {
+    return (recentProperties = []);
+  } else {
+    const recentProperties = data.properties
+      .sort(() => Math.random() - Math.random())
+      .slice(0, 3);
+  }
 
   return (
     <>
